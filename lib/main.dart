@@ -15,8 +15,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
             primarySwatch: Colors.blue,
             visualDensity: VisualDensity.adaptivePlatformDensity,
-            textTheme:
-                GoogleFonts.montserratTextTheme(Theme.of(context).textTheme)),
+            textTheme: GoogleFonts.latoTextTheme(Theme.of(context).textTheme)),
         home: LoginPage());
   }
 }

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:test_app/helpers/navigator.dart';
 import 'package:test_app/helpers/palette.dart';
 import 'package:test_app/helpers/styles.dart';
-import 'package:test_app/screens/register.dart';
 import 'package:test_app/widgets/logo_builder.dart';
 import 'package:test_app/widgets/theme_button.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
+  bool isChecked = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,14 +30,14 @@ class _LoginPageState extends State<LoginPage> {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           child: SvgPicture.asset(
-                            'assets/images/sign_in.svg',
+                            'assets/images/register.svg',
                           ),
                         ),
                       ),
                       SizedBox(height: 20),
-                      Text('Welcome Back', style: kWelcomeBackStyle),
+                      Text('Register as a user', style: kWelcomeBackStyle),
                       Text(
-                        'Sign in to continue',
+                        'Sign up to continue',
                         style: TextStyle(color: Colors.grey),
                       )
                     ],
@@ -46,7 +46,10 @@ class _LoginPageState extends State<LoginPage> {
                     top: 40,
                     left: 20,
                     child: IconButton(
-                        icon: Icon(Icons.keyboard_backspace), onPressed: () {}),
+                        icon: Icon(Icons.keyboard_backspace),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        }),
                   )
                 ],
               ),
@@ -64,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(20)),
-                          child: loginForm(),
+                          child: registerForm(),
                         ),
                       ),
                     ),
@@ -78,10 +81,19 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget loginForm() {
+  Widget registerForm() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        TextFormField(
+            decoration:
+                InputDecoration(labelText: 'Name', alignLabelWithHint: true)),
+        SizedBox(height: 20),
+        TextFormField(
+            keyboardType: TextInputType.phone,
+            decoration: InputDecoration(
+                labelText: 'Phone number', alignLabelWithHint: true)),
+        SizedBox(height: 20),
         TextFormField(
             keyboardType: TextInputType.emailAddress,
             decoration:
@@ -95,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Sign in',
+            Text('Sign up',
                 style: TextStyle(color: Colors.black, fontSize: 20)),
             ThemeButton(
               onPressed: () {},
@@ -118,21 +130,6 @@ class _LoginPageState extends State<LoginPage> {
               color: Colors.red,
               text: 'G+',
             )
-          ],
-        ),
-        SizedBox(height: 40),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            InkWell(
-              onTap: () => navigate(context, RegisterPage()),
-              child: Text('Sign up',
-                  style: TextStyle(
-                      decoration: TextDecoration.underline, fontSize: 16)),
-            ),
-            Text('Forgot your Password?',
-                style: TextStyle(
-                    decoration: TextDecoration.underline, fontSize: 16)),
           ],
         ),
       ],
