@@ -17,67 +17,67 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(color: kBackgroundColor),
-        child: Column(
-          children: [
-            Expanded(
-              flex: 2,
-              child: Stack(
-                children: [
-                  Column(
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: SvgPicture.asset(
-                            'assets/images/register.svg',
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          decoration: BoxDecoration(color: kBackgroundColor),
+          child: Column(
+            children: [
+              Expanded(
+                flex: 2,
+                child: Stack(
+                  children: [
+                    Column(
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: SvgPicture.asset(
+                              'assets/images/register.svg',
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(height: 20),
-                      Text('Register as a user', style: kWelcomeBackStyle),
-                      Text(
-                        'Sign up to continue',
-                        style: TextStyle(color: Colors.grey),
-                      )
-                    ],
-                  ),
-                  Positioned(
-                    top: 40,
-                    left: 20,
-                    child: IconButton(
-                        icon: Icon(Icons.keyboard_backspace),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        }),
-                  )
-                ],
+                        SizedBox(height: 20),
+                        Text('Register as a user', style: kWelcomeBackStyle),
+                        Text(
+                          'Sign up to continue',
+                          style: TextStyle(color: Colors.grey),
+                        )
+                      ],
+                    ),
+                    Positioned(
+                      top: 20,
+                      left: 5,
+                      child: IconButton(
+                          icon: Icon(Icons.keyboard_backspace),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          }),
+                    )
+                  ],
+                ),
               ),
-            ),
-            Expanded(
-              flex: 3,
-              child: Column(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: SingleChildScrollView(
+              Expanded(
+                flex: 3,
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
                         child: Container(
                           padding: EdgeInsets.all(20),
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(20)),
-                          child: registerForm(),
+                          child: SingleChildScrollView(child: registerForm()),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

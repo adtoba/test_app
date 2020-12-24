@@ -46,8 +46,7 @@ class _HomeTabState extends State<HomeTab> {
             children: [
               CircleAvatar(
                 radius: 30,
-                backgroundImage: NetworkImage(
-                    'https://images.vexels.com/media/users/3/145908/preview2/52eabf633ca6414e60a7677b0b917d92-male-avatar-maker.jpg'),
+                backgroundImage: AssetImage('assets/images/avatar.jpg'),
               ),
               IconButton(icon: Icon(Icons.settings), onPressed: () {})
             ],
