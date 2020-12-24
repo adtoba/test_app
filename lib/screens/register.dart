@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:test_app/helpers/navigator.dart';
 import 'package:test_app/helpers/palette.dart';
 import 'package:test_app/helpers/styles.dart';
+import 'package:test_app/screens/homepage.dart';
 import 'package:test_app/widgets/logo_builder.dart';
 import 'package:test_app/widgets/theme_button.dart';
 
@@ -109,9 +111,7 @@ class _RegisterPageState extends State<RegisterPage> {
           children: [
             Text('Sign up',
                 style: TextStyle(color: Colors.black, fontSize: 20)),
-            ThemeButton(
-              onPressed: () {},
-            )
+            ThemeButton(onPressed: () => navigate(context, HomeTab()))
           ],
         ),
         SizedBox(height: 20),
